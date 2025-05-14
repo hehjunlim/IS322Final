@@ -1,0 +1,428 @@
+/* Home.module.css - Typewriter Theme */
+
+.homeContainer {
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+.homeHero {
+  background: var(--primary);
+  color: var(--paper);
+  padding: 80px 0 60px;
+  text-align: center;
+  border-bottom: 4px solid var(--accent);
+  position: relative;
+}
+
+.homeHero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 10px,
+    var(--accent) 10px,
+    var(--accent) 20px
+  );
+}
+
+.homeHeroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.homeHeroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: var(--font-heading);
+  animation: typing 2s steps(30);
+}
+
+.homeHeroDescription {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  font-family: var(--font-primary);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Quick Access Section */
+.quickAccessSection {
+  padding: 60px 0;
+  background: var(--paper);
+  border-bottom: 2px solid var(--border);
+}
+
+.interestCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.interestCard {
+  background: var(--background);
+  border: 2px solid var(--primary);
+  padding: 2rem;
+  text-align: center;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.interestCard::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: -3px;
+  bottom: -3px;
+  background: var(--primary);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.interestCard:hover {
+  transform: translate(-3px, -3px);
+}
+
+.interestCard:hover::after {
+  opacity: 0.2;
+}
+
+.interestCard i {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.interestCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.interestCard a {
+  color: var(--accent);
+  text-decoration: underline;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+}
+
+/* Stats Section */
+.homeStatsSection {
+  padding: 80px 0;
+  background-color: var(--background);
+}
+
+.homeSectionTitle {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--font-heading);
+}
+
+.homeStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.homeStatCard {
+  background: var(--paper);
+  padding: 2rem;
+  border: 2px solid var(--primary);
+  text-align: center;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.homeStatCard::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: 2px;
+  bottom: 2px;
+  background: var(--accent);
+  z-index: -1;
+  opacity: 0;
+  transition: all var(--transition-base);
+}
+
+.homeStatCard:hover::before {
+  opacity: 1;
+  transform: translate(4px, 4px);
+}
+
+.homeStatNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+}
+
+.homeStatText {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.homeAuthorityText {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-family: var(--font-primary);
+}
+
+/* Features Section */
+.homeFeaturesSection {
+  padding: 80px 0;
+  background: var(--paper);
+  border-top: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+}
+
+.homeFeaturesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.homeFeatureCard {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.featureIcon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--paper);
+  font-size: 1.5rem;
+  border: 3px solid var(--primary);
+  transform: rotate(45deg);
+  transition: all var(--transition-base);
+}
+
+.featureIcon i {
+  transform: rotate(-45deg);
+}
+
+.homeFeatureCard:hover .featureIcon {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: rotate(45deg) scale(1.1);
+}
+
+.homeFeatureCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.homeFeatureCard p {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Scenarios Section */
+.scenariosSection {
+  padding: 80px 0;
+  background: var(--background);
+}
+
+.topicsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.topicCard {
+  background: var(--paper);
+  padding: 1.5rem;
+  border: 2px solid var(--primary);
+  text-align: center;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.topicCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0.1;
+  transition: left var(--transition-base);
+}
+
+.topicCard:hover::before {
+  left: 0;
+}
+
+.topicCard i {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.topicCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.topicCard p {
+  color: var(--text);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* CTA Section */
+.homeCtaSection {
+  padding: 60px 0;
+  background: var(--primary);
+  text-align: center;
+  color: var(--paper);
+  border-top: 4px solid var(--accent);
+}
+
+.homeCtaTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.homeCtaText {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+/* Button styles */
+.btn {
+  padding: 10px 25px;
+  border: 2px solid currentColor;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  font-family: var(--font-primary);
+}
+
+.btnPrimary {
+  composes: btn;
+  background: var(--paper);
+  color: var(--primary);
+  border-color: var(--paper);
+}
+
+.btnPrimary:hover {
+  background: transparent;
+  color: var(--paper);
+  transform: translateY(-2px);
+}
+
+.btnSecondary {
+  composes: btn;
+  background: transparent;
+  color: var(--paper);
+  border-color: var(--paper);
+}
+
+.btnSecondary:hover {
+  background: var(--paper);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Container */
+.globalContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .homeHeroTitle {
+    font-size: 2rem;
+  }
+  
+  .homeHeroDescription {
+    font-size: 1rem;
+  }
+  
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .homeSectionTitle {
+    font-size: 1.5rem;
+  }
+  
+  .homeStatNumber {
+    font-size: 2rem;
+  }
+  
+  .topicsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}

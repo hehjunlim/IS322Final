@@ -1,0 +1,509 @@
+/* EtiquetteAssistant.module.css - Mobile-first Typewriter Theme */
+
+.assistantMain {
+    min-height: 100vh;
+    background: var(--background);
+    padding: 60px 0 20px; /* Reduced padding for mobile */
+  }
+  
+  .assistantContainer {
+    width: 100%;
+    padding: 0 var(--spacing-md);
+    margin: 0 auto;
+    height: calc(100vh - 140px); /* Adjusted for mobile */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .assistantHeader {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .assistantHeader h1 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-heading);
+  }
+  
+  .assistantHeader p {
+    font-size: 0.875rem;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Quick Questions */
+  .quickQuestions {
+    background: var(--paper);
+    padding: 1rem;
+    border: 2px solid var(--primary);
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .quickQuestions h3 {
+    font-size: 0.875rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-heading);
+  }
+  
+  .questionGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .quickQuestionBtn {
+    background: var(--background);
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-size: 0.75rem;
+    color: var(--text);
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .quickQuestionBtn:hover, .quickQuestionBtn:active {
+    background: var(--primary);
+    color: var(--paper);
+    border-color: var(--primary);
+  }
+  
+  /* Messages Container */
+  .messagesContainer {
+    flex: 1;
+    background: var(--paper);
+    border: 2px solid var(--primary);
+    padding: 1rem;
+    overflow-y: auto;
+    margin-bottom: 0.5rem;
+    position: relative;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+  
+  .message {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .userMessage {
+    justify-content: flex-end;
+  }
+  
+  .assistantMessage {
+    justify-content: flex-start;
+  }
+  
+  .messageContent {
+    max-width: 85%; /* More space on mobile */
+    padding: 0.75rem 1rem;
+    position: relative;
+    border: 1px solid var(--primary);
+  }
+  
+  .userMessage .messageContent {
+    background: var(--primary);
+    color: var(--paper);
+    border-bottom-right-radius: 0;
+  }
+  
+  .assistantMessage .messageContent {
+    background: var(--background);
+    color: var(--text);
+    border-bottom-left-radius: 0;
+  }
+  
+  .messageContent p {
+    margin: 0;
+    line-height: 1.4;
+    font-size: 0.875rem;
+    font-family: var(--font-primary);
+  }
+  
+  .appropriatenessIndicator {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .appropriate {
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .inappropriate {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  
+  .extraInfo {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid currentColor;
+    font-size: 0.75rem;
+    font-style: normal;
+    opacity: 0.9;
+  }
+  
+  .messageTime {
+    font-size: 0.625rem;
+    color: var(--secondary);
+    margin-top: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Typing Indicator */
+  .typingIndicator {
+    display: flex;
+    gap: 3px;
+    padding: 0.5rem 0;
+  }
+  
+  .typingIndicator span {
+    width: 6px;
+    height: 6px;
+    background: var(--secondary);
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+  }
+  
+  .typingIndicator span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .typingIndicator span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes typing {
+    0%, 60%, 100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  /* Input Area */
+  .inputArea {
+    background: var(--paper);
+    padding: 1rem;
+    border: 2px solid var(--primary);
+  }
+  
+  .inputWrapper {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .messageInput {
+    flex: 1;
+    padding: 10px 12px;
+    border: 2px solid var(--border);
+    background: var(--paper);
+    font-size: 0.875rem;
+    font-family: var(--font-primary);
+    transition: border-color var(--transition-base);
+  }
+  
+  .messageInput:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  
+  .sendButton {
+    padding: 10px 16px;
+    background: var(--primary);
+    color: var(--paper);
+    border: 2px solid var(--primary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-size: 0.875rem;
+    font-family: var(--font-primary);
+    min-width: 44px; /* Proper touch target */
+  }
+  
+  .sendButton:hover:not(:disabled), 
+  .sendButton:active:not(:disabled) {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  
+  .sendButton:disabled {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  /* Profile CTA */
+  .profileCta {
+    text-align: center;
+    padding: 1rem;
+    background: var(--paper);
+    border: 2px solid var(--accent);
+    margin-top: 0.5rem;
+  }
+  
+  .profileCta p {
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .profileCta button {
+    background: var(--accent);
+    color: var(--paper);
+    border: none;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+  }
+  
+  .profileCta button:hover, .profileCta button:active {
+    background: var(--primary);
+  }
+  
+  /* Tablet styles (min-width: 768px) */
+  @media (min-width: 768px) {
+    .assistantMain {
+      padding: 80px 0 40px;
+    }
+    
+    .assistantContainer {
+      max-width: 700px;
+      padding: 0 var(--spacing-lg);
+      height: calc(100vh - 200px);
+    }
+    
+    .assistantHeader h1 {
+      font-size: 1.75rem;
+      letter-spacing: 0.15em;
+    }
+    
+    .assistantHeader p {
+      font-size: 0.95rem;
+    }
+    
+    .quickQuestions {
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .quickQuestions::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      right: -3px;
+      bottom: -3px;
+      background: var(--primary);
+      z-index: -1;
+      opacity: 0.2;
+    }
+    
+    .quickQuestions h3 {
+      font-size: 1rem;
+    }
+    
+    .questionGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    
+    .quickQuestionBtn {
+      padding: 10px 14px;
+      font-size: 0.825rem;
+    }
+    
+    .messagesContainer {
+      padding: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .messageContent {
+      max-width: 70%;
+      padding: 1rem 1.25rem;
+    }
+    
+    .messageContent p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    .inputArea {
+      padding: 1.25rem;
+    }
+    
+    .inputWrapper {
+      gap: 0.75rem;
+    }
+    
+    .messageInput {
+      padding: 12px 16px;
+      font-size: 0.95rem;
+    }
+    
+    .sendButton {
+      padding: 12px 20px;
+      font-size: 0.95rem;
+    }
+  }
+  
+  /* Desktop styles (min-width: 1024px) */
+  @media (min-width: 1024px) {
+    .assistantContainer {
+      max-width: 800px;
+      padding: 0 var(--spacing-xl);
+    }
+    
+    .assistantHeader h1 {
+      font-size: 2rem;
+    }
+    
+    .assistantHeader p {
+      font-size: 1rem;
+    }
+    
+    .quickQuestions {
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .quickQuestions h3 {
+      font-size: 1.1rem;
+    }
+    
+    .questionGrid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    
+    .quickQuestionBtn {
+      padding: 12px 16px;
+      font-size: 0.875rem;
+    }
+    
+    .messagesContainer {
+      padding: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .message {
+      margin-bottom: 1.5rem;
+    }
+    
+    .inputArea {
+      padding: 1.5rem;
+    }
+    
+    .inputWrapper {
+      gap: 1rem;
+    }
+  }
+  
+  /* Large desktop styles (min-width: 1440px) */
+  @media (min-width: 1440px) {
+    .assistantContainer {
+      max-width: 900px;
+    }
+  }
+  
+  /* Embedded Version Styles */
+  .embedContainer {
+    width: 100%;
+    height: 500px; /* Smaller for mobile */
+    display: flex;
+    flex-direction: column;
+    background: var(--paper);
+    border: 2px solid var(--primary);
+    overflow: hidden;
+  }
+  
+  .embedContainer .messagesContainer {
+    flex: 1;
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 2px solid var(--primary);
+  }
+  
+  .embedContainer .inputArea {
+    border: none;
+  }
+  
+  @media (min-width: 768px) {
+    .embedContainer {
+      height: 600px;
+    }
+  }
+  
+  /* Focus visible for accessibility */
+  .assistantContainer button:focus-visible,
+  .assistantContainer input:focus-visible,
+  .assistantContainer textarea:focus-visible,
+  .messageInput:focus-visible,
+  .sendButton:focus-visible,
+  .quickQuestionBtn:focus-visible,
+  .profileCta button:focus-visible,
+  .embedContainer button:focus-visible,
+  .embedContainer input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  
+  /* Smooth scrolling */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+  
+  /* Loading states */
+  .loading {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+  
+  /* Reduced motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .assistantContainer,
+    .assistantContainer button,
+    .assistantContainer input,
+    .typingIndicator span,
+    .messageContent,
+    .quickQuestionBtn,
+    .profileCta button,
+    .embedContainer,
+    .embedContainer button,
+    .embedContainer input {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }

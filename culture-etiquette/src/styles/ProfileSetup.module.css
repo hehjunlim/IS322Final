@@ -1,0 +1,370 @@
+/* ProfileSetup.module.css - Mobile-first Typewriter Theme */
+
+.profileSetupMain {
+    min-height: 100vh;
+    background: var(--background);
+    padding: 60px 0 40px; /* Reduced padding for mobile */
+  }
+  
+  .container {
+    width: 100%;
+    padding: 0 var(--spacing-md);
+    margin: 0 auto;
+  }
+  
+  .progressBar {
+    height: 6px;
+    background: var(--border);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--primary);
+  }
+  
+  .progressFill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  
+  .stepIndicator {
+    text-align: center;
+    color: var(--text);
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-primary);
+  }
+  
+  .profileForm {
+    background: var(--paper);
+    padding: 1.5rem;
+    border: 2px solid var(--primary);
+    position: relative;
+  }
+  
+  .profileForm h2 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-heading);
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .formGroup label {
+    display: block;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: var(--font-primary);
+  }
+  
+  .formGroup input[type="text"],
+  .formGroup select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid var(--border);
+    background: var(--paper);
+    font-size: 0.875rem;
+    font-family: var(--font-primary);
+    transition: border-color var(--transition-base);
+  }
+  
+  .formGroup input[type="text"]:focus,
+  .formGroup select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  
+  .errorInput {
+    border-color: var(--accent) !important;
+  }
+  
+  .errorText {
+    color: var(--accent);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Radio and Checkbox Styling */
+  .radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .radioLabel,
+  .checkboxLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--text);
+    font-family: var(--font-primary);
+    padding: 0.5rem 0;
+    tap-highlight-color: transparent;
+  }
+  
+  .radioLabel input[type="radio"],
+  .checkboxLabel input[type="checkbox"] {
+    margin-right: 0.5rem;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--accent);
+  }
+  
+  .checkboxGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  
+  /* Buttons */
+  .buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .nextButton,
+  .backButton {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: 2px solid;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-primary);
+  }
+  
+  .nextButton {
+    background: var(--primary);
+    color: var(--paper);
+    border-color: var(--primary);
+  }
+  
+  .nextButton:hover, .nextButton:active {
+    background: var(--text);
+    border-color: var(--text);
+  }
+  
+  .nextButton:disabled {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .backButton {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  
+  .backButton:hover, .backButton:active {
+    background: var(--background);
+    border-color: var(--text);
+    color: var(--text);
+  }
+  
+  .skipOption {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .skipButton {
+    background: transparent;
+    border: none;
+    color: var(--secondary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color var(--transition-base);
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .skipButton:hover, .skipButton:active {
+    color: var(--accent);
+  }
+  
+  /* Tablet styles (min-width: 768px) */
+  @media (min-width: 768px) {
+    .profileSetupMain {
+      padding: 80px 0 40px;
+    }
+    
+    .container {
+      max-width: 600px;
+      padding: 0 var(--spacing-lg);
+    }
+    
+    .progressBar {
+      height: 8px;
+      margin-bottom: 2rem;
+    }
+    
+    .profileForm {
+      padding: 2.5rem;
+      box-shadow: 3px 3px 0 var(--primary);
+    }
+    
+    .profileForm h2 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    
+    .formGroup {
+      margin-bottom: 2rem;
+    }
+    
+    .formGroup label {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .formGroup input[type="text"],
+    .formGroup select {
+      padding: 12px 16px;
+      font-size: 0.95rem;
+    }
+    
+    .checkboxGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .buttonGroup {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 3rem;
+    }
+    
+    .nextButton,
+    .backButton {
+      width: auto;
+      padding: 12px 32px;
+    }
+    
+    .nextButton {
+      margin-left: auto;
+    }
+  }
+  
+  /* Desktop styles (min-width: 1024px) */
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 700px;
+      padding: 0 var(--spacing-xl);
+    }
+    
+    .profileForm {
+      padding: 3rem;
+    }
+    
+    .profileForm h2 {
+      font-size: 2rem;
+    }
+    
+    .checkboxGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Large desktop styles (min-width: 1440px) */
+  @media (min-width: 1440px) {
+    .container {
+      max-width: 800px;
+    }
+  }
+  
+  /* Loading states */
+  .loading {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    to {
+      left: 100%;
+    }
+  }
+  
+  /* Focus visible for accessibility */
+  .profileForm *:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  
+  .nextButton:focus-visible,
+  .backButton:focus-visible,
+  .skipButton:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  
+  .formGroup input:focus-visible,
+  .formGroup select:focus-visible,
+  .formGroup textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  
+  .radioLabel input:focus-visible,
+  .checkboxLabel input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .profileForm,
+    .profileForm *,
+    .progressFill,
+    .nextButton,
+    .backButton,
+    .skipButton,
+    .formGroup,
+    .projectMetaCard,
+    .loading::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }

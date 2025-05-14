@@ -1,0 +1,336 @@
+.projectsHero {
+    background: linear-gradient(135deg, #3a86ff 0%, #8338ec 100%);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+  }
+  
+  .projectsHero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .projectsHero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .projectsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .projectCard {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .projectImageContainer {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .projectImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .projectCard:hover .projectImage {
+    transform: scale(1.05);
+  }
+  
+  .projectContent {
+    padding: 2rem;
+  }
+  
+  .projectContent h3 {
+    color: #3a86ff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .projectTech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .techTag {
+    background-color: rgba(58, 134, 255, 0.1);
+    color: #3a86ff;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .projectDetails {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .expertiseSection {
+    background-color: #f1f9ff;
+    padding: 5rem 0;
+  }
+  
+  .expertiseSection h2 {
+    text-align: center;
+    color: #3a86ff;
+    margin-bottom: 3rem;
+  }
+  
+  .expertiseContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  .expertiseText p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+  
+  .expertiseText p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .expertiseStats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .statItem {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+  
+  .statItem h3 {
+    color: #3a86ff;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .statItem p {
+    color: #666;
+    margin-bottom: 0;
+  }
+  
+  .ctaSection {
+    background: linear-gradient(135deg, #3a86ff 0%, #8338ec 100%);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+    margin-top: 4rem;
+  }
+  
+  .ctaSection h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .ctaSection p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .ctaButtons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .sectionTitle {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #3a86ff;
+    position: relative;
+    font-size: 2rem;
+  }
+  
+  .sectionTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #fb5607;
+  }
+  
+  .sectionDescription {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+  
+  .projectsSection {
+    padding: 4rem 0;
+    background-color: #f8f9fa;
+  }
+  
+  .projectButton {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #3a86ff;
+    color: white;
+  }
+  
+  .projectButton:hover {
+    background-color: #2a75e8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(58, 134, 255, 0.3);
+  }
+  
+  @media (min-width: 992px) {
+    .projectCard {
+      flex-direction: row;
+      align-items: stretch;
+      height: 350px;
+    }
+    
+    .projectImageContainer {
+      width: 40%;
+      height: auto;
+    }
+    
+    .projectContent {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .expertiseContent {
+      grid-template-columns: 1fr;
+    }
+    
+    .expertiseStats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .projectsHero h1 {
+      font-size: 2.5rem;
+    }
+    
+    .expertiseStats {
+      grid-template-columns: 1fr;
+    }
+    
+    .ctaSection h2 {
+      font-size: 2rem;
+    }
+    
+    .ctaButtons {
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .projectsHero h1 {
+      font-size: 2rem;
+    }
+  }
+  /* Visualization Section */
+.visualizationSection {
+    padding: 4rem 0;
+    background-color: white;
+  }
+  
+  .visualizationContainer {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 2rem;
+    overflow: visible;
+    position: relative;
+  }
+
+  /* Add this to your existing Project.module.css */
+
+/* Icon display within the image container */
+.projectIconDisplay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+    transition: all 0.5s ease;
+  }
+  
+  .projectIconDisplay i {
+    font-size: 5rem;
+    transition: transform 0.5s ease;
+  }
+  
+  .projectCard:hover .projectIconDisplay {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  }
+  
+  .projectCard:hover .projectIconDisplay i {
+    transform: scale(1.1);
+  }
+  
+  /* Specific icon backgrounds for each project type */
+  .projectCard:nth-child(1) .projectIconDisplay {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  }
+  
+  .projectCard:nth-child(2) .projectIconDisplay {
+    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+  }
+  
+  .projectCard:nth-child(3) .projectIconDisplay {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  }
+  
+  /* Responsive adjustments for icon size */
+  @media (max-width: 768px) {
+    .projectIconDisplay i {
+      font-size: 4rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .projectIconDisplay i {
+      font-size: 3.5rem;
+    }
+  }
