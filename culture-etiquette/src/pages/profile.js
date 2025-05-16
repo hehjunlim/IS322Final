@@ -205,7 +205,7 @@ export default function Profile() {
             Use the AI assistant to get customized advice tailored to your interests.
           </p>
           <button 
-            onClick={() => router.push('/etiquette-assistant')}
+            onClick={() => router.push('/ai-assistant')}
             className={styles.successButton}
           >
             Try the AI Assistant Now

@@ -15,9 +15,13 @@ export default function Home() {
     // Check if user has completed profile setup
     const profile = localStorage.getItem('userProfile');
     if (profile) {
-      const parsedProfile = JSON.parse(profile);
-      setUserProfile(parsedProfile);
-      setUserName(parsedProfile.name || 'Friend');
+      try {
+        const parsedProfile = JSON.parse(profile);
+        setUserProfile(parsedProfile);
+        setUserName(parsedProfile.name || 'Friend');
+      } catch (error) {
+        console.error('Error parsing user profile:', error);
+      }
     }
   }, []);
 
@@ -45,43 +49,9 @@ export default function Home() {
                 Navigate cultural customs with confidence. Learn proper etiquette for business,
                 social, and travel situations across different cultures worldwide.
               </p>
-              <div className={styles.heroButtons}>
-                {!userProfile ? (
-                  <Link href="/profile-setup" className={styles.btnPrimary}>
-                    Get Started - Set Up Profile
-                  </Link>
-                ) : (
-                  <Link href="/ai-assistant" className={styles.btnPrimary}>
-                    Ask the AI Assistant
-                  </Link>
-                )}
-                <Link href="/cultural-guides" className={styles.btnSecondary}>
-                  Browse Cultural Guides
-                </Link>
-              </div>
             </div>
           </div>
         </section>
-
-        {/* Quick Access Section for Returning Users */}
-        {userProfile && (
-          <section className={styles.quickAccessSection}>
-            <div className={styles.globalContainer}>
-              <h2 className={styles.homeSectionTitle}>Your Cultural Interests</h2>
-              <div className={styles.interestCards}>
-                {userProfile.interestedCultures?.map((culture, index) => (
-                  <div key={index} className={styles.interestCard}>
-                    <i className="fas fa-globe"></i>
-                    <h3>{culture}</h3>
-                    <Link href={`/guides/${culture.toLowerCase().replace(' ', '-')}`}>
-                      View Guide
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
 
         {/* Statistics Section */}
         <section className={styles.homeStatsSection}>
@@ -101,10 +71,6 @@ export default function Home() {
                 <p className={styles.homeStatText}>of professionals work with international colleagues</p>
               </div>
             </div>
-            <p className={styles.homeAuthorityText}>
-              Our comprehensive guides help you avoid cultural faux pas and build meaningful
-              cross-cultural relationships in business and personal settings.
-            </p>
           </div>
         </section>
 

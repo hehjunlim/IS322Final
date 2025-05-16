@@ -21,7 +21,6 @@
   }
   
   .progressBar::before {
-    content: '/* progress */';
     position: absolute;
     top: -10px;
     left: 15px;
@@ -56,7 +55,6 @@
   }
   
   .profileForm::before {
-    content: '/* setup-form */';
     position: absolute;
     top: -10px;
     left: 15px;
