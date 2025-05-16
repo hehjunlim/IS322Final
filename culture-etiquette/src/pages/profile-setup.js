@@ -162,8 +162,8 @@ export default function ProfileSetup() {
     localStorage.setItem('userProfile', JSON.stringify(formData));
     localStorage.setItem('profileCreatedAt', new Date().toISOString());
     
-    // Redirect to home or assistant
-    router.push('/etiquette-assistant');
+    // Redirect to profile page to show profile created success message
+    router.push('/profile');
   };
 
   const renderStep = () => {

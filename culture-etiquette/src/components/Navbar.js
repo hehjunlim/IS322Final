@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from '../styles/Navbar.module.css';
+import ProfileAvatar from './ProfileAvatar';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [userProfile, setUserProfile] = useState(null);
   const router = useRouter();
+
+  useEffect(() => {
+    // Load user profile from localStorage
+    const profile = localStorage.getItem('userProfile');
+    if (profile) {
+      setUserProfile(JSON.parse(profile));
+    }
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -61,6 +71,19 @@ const Navbar = () => {
               Setup Profile
             </Link>
           </li>
+          
+          {userProfile && (
+            <li className={`${styles.navbarItem} ${styles.profileItem}`}>
+              <Link 
+                href="/profile" 
+                className={`${styles.profileLink} ${router.pathname === '/profile' ? styles.active : ''}`}
+                onClick={() => setIsOpen(false)}
+              >
+                <ProfileAvatar name={userProfile.name} size="small" />
+                <span className={styles.profileName}>{userProfile.name}</span>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

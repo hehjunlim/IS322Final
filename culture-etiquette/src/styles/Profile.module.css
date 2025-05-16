@@ -1,0 +1,316 @@
+/* Profile.module.css */
+.profileContainer {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 20px;
+  }
+  
+  .profileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .profileInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .profileAvatar {
+    border: 3px solid white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profileNameSection {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profileName {
+    font-size: 28px;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .profileDate {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+  }
+  
+  .editButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #6b7280;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  
+  .editButton:hover {
+    background-color: #f3f4f6;
+    color: #4b5563;
+  }
+  
+  .editNameForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .nameInput {
+    font-size: 18px;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    width: 240px;
+  }
+  
+  .editButtons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .saveButton, .cancelButton {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .saveButton {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+  }
+  
+  .saveButton:hover {
+    background-color: #4338ca;
+  }
+  
+  .saveButton:disabled {
+    background-color: #c7d2fe;
+    cursor: not-allowed;
+  }
+  
+  .cancelButton {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+  }
+  
+  .cancelButton:hover {
+    background-color: #e5e7eb;
+  }
+  
+  .profileActions {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .actionButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .actionButton:hover {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+  }
+  
+  .actionButton i {
+    color: #4f46e5;
+  }
+  
+  .profileContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  
+  .profileCard {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .cardHeader {
+    background-color: #f9fafb;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .cardHeader h2 {
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .cardHeader h2 i {
+    color: #4f46e5;
+  }
+  
+  .cardContent {
+    padding: 20px;
+  }
+  
+  .profileDetail {
+    display: flex;
+    margin-bottom: 16px;
+  }
+  
+  .profileDetail:last-child {
+    margin-bottom: 0;
+  }
+  
+  .detailLabel {
+    font-weight: 600;
+    width: 140px;
+    color: #4b5563;
+  }
+  
+  .detailValue {
+    flex: 1;
+    color: #1f2937;
+  }
+  
+  .cultureTagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .cultureTag {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: #ede9fe;
+    color: #5b21b6;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .noDataMessage {
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  .profileSuccessMessage {
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    margin-top: 40px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .successIcon {
+    font-size: 48px;
+    color: #10b981;
+    margin-bottom: 16px;
+  }
+  
+  .profileSuccessMessage h2 {
+    color: #065f46;
+    margin: 0 0 16px;
+  }
+  
+  .profileSuccessMessage p {
+    color: #065f46;
+    margin: 0 0 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .successButton {
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .successButton:hover {
+    background-color: #059669;
+  }
+  
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    gap: 16px;
+  }
+  
+  .loadingSpinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #4f46e5;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .profileHeader {
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .profileContent {
+      grid-template-columns: 1fr;
+    }
+    
+    .profileActions {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }

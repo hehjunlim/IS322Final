@@ -253,3 +253,47 @@
     overflow: hidden;
   }
 }
+
+.profileItem {
+  margin-left: 8px;
+}
+
+.profileLink {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px !important;
+  border-radius: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.profileLink:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profileName {
+  font-size: 14px;
+  font-weight: 500;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 960px) {
+  .profileItem {
+    margin-top: 12px;
+    width: 100%;
+  }
+  
+  .profileLink {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .profileName {
+    max-width: none;
+  }
+}
