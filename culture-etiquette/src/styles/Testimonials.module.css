@@ -1,204 +1,214 @@
-/* Testimonials.module.css - Mobile-first Typewriter theme */
-
 .testimonialsSection {
-    padding: var(--spacing-2xl) 0;
-    background-color: var(--background);
+  padding: var(--spacing-2xl) 0;
+  background-color: var(--background);
+  position: relative;
+}
+
+.globalContainer {
+  width: 100%;
+  padding: 0 var(--spacing-md);
+  margin: 0 auto;
+}
+
+.testimonialsSectionTitle {
+  font-size: var(--font-xl);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-heading);
+  position: relative;
+}
+
+.testimonialsSectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+.testimonialCard {
+  background: var(--paper);
+  padding: var(--spacing-lg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.testimonialCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary);
+  opacity: 0.3;
+  transition: opacity var(--transition-base);
+}
+
+.testimonialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.testimonialCard:hover::before {
+  opacity: 1;
+}
+
+.testimonialQuoteIcon {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  font-size: var(--font-xl);
+  color: var(--primary);
+  opacity: 0.2;
+}
+
+.testimonialCard:hover .testimonialQuoteIcon {
+  color: var(--accent);
+  opacity: 0.4;
+}
+
+.testimonialText {
+  font-size: var(--font-sm);
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: var(--spacing-md);
+  font-family: var(--font-primary);
+  position: relative;
+  padding-left: var(--spacing-md);
+}
+
+.testimonialText::before {
+  content: '//';
+  position: absolute;
+  left: 0;
+  color: var(--light-text);
+  font-family: monospace;
+}
+
+.testimonialAuthor {
+  text-align: right;
+  border-top: 1px solid var(--border);
+  padding-top: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.testimonialAuthorName {
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.125rem;
+  font-family: var(--font-heading);
+  font-size: var(--font-sm);
+}
+
+.testimonialAuthorTitle {
+  color: var(--light-text);
+  font-size: var(--font-xs);
+  font-family: monospace;
+}
+
+/* Tablet styles (min-width: 768px) */
+@media (min-width: 768px) {
+  .testimonialsSection {
+    padding: var(--spacing-3xl) 0;
   }
   
   .globalContainer {
-    width: 100%;
-    padding: 0 var(--spacing-md);
-    margin: 0 auto;
+    max-width: 768px;
+    padding: 0 var(--spacing-lg);
   }
   
   .testimonialsSectionTitle {
-    font-size: var(--font-xl);
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-    color: var(--primary);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-family: var(--font-heading);
+    font-size: var(--font-2xl);
+    margin-bottom: var(--spacing-2xl);
   }
   
   .testimonialsGrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
   }
   
   .testimonialCard {
-    background: var(--paper);
-    padding: var(--spacing-lg);
-    border: 2px solid var(--primary);
-    position: relative;
-    transition: all var(--transition-base);
-  }
-  
-  .testimonialCard::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    right: -2px;
-    bottom: -2px;
-    background: var(--accent);
-    z-index: -1;
-    opacity: 0;
-    transition: all var(--transition-base);
-  }
-  
-  .testimonialCard:hover::before {
-    opacity: 1;
-    transform: translate(3px, 3px);
-  }
-  
-  .testimonialQuoteIcon {
-    position: absolute;
-    top: var(--spacing-md);
-    left: var(--spacing-md);
-    font-size: var(--font-xl);
-    color: var(--accent);
-    opacity: 0.3;
+    padding: var(--spacing-xl);
   }
   
   .testimonialText {
-    font-size: var(--font-sm);
-    line-height: 1.6;
-    color: var(--text);
-    margin-bottom: var(--spacing-md);
-    padding-top: var(--spacing-lg);
-    font-family: var(--font-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  .testimonialAuthor {
-    text-align: right;
-    border-top: 1px solid var(--border);
-    padding-top: var(--spacing-sm);
+    font-size: var(--font-base);
   }
   
   .testimonialAuthorName {
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 0.125rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: var(--font-sm);
+    font-size: var(--font-base);
   }
   
   .testimonialAuthorTitle {
-    color: var(--secondary);
-    font-size: var(--font-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: var(--font-sm);
+  }
+}
+
+/* Desktop styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .testimonialsSection {
+    padding: var(--spacing-4xl) 0;
   }
   
-  /* Tablet styles (min-width: 768px) */
-  @media (min-width: 768px) {
-    .testimonialsSection {
-      padding: var(--spacing-3xl) 0;
-    }
-    
-    .globalContainer {
-      max-width: 768px;
-      padding: 0 var(--spacing-lg);
-    }
-    
-    .testimonialsSectionTitle {
-      font-size: var(--font-2xl);
-      margin-bottom: var(--spacing-2xl);
-    }
-    
-    .testimonialsGrid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-xl);
-    }
-    
-    .testimonialCard {
-      padding: var(--spacing-xl);
-    }
-    
-    .testimonialCard::before {
-      top: 3px;
-      left: 3px;
-      right: -3px;
-      bottom: -3px;
-    }
-    
-    .testimonialCard:hover::before {
-      transform: translate(4px, 4px);
-    }
-    
-    .testimonialText {
-      font-size: var(--font-base);
-      padding-top: var(--spacing-xl);
-    }
-    
-    .testimonialAuthorName {
-      font-size: var(--font-base);
-    }
-    
-    .testimonialAuthorTitle {
-      font-size: var(--font-sm);
-    }
+  .globalContainer {
+    max-width: 1000px;
+    padding: 0 var(--spacing-xl);
   }
   
-  /* Desktop styles (min-width: 1024px) */
-  @media (min-width: 1024px) {
-    .testimonialsSection {
-      padding: var(--spacing-4xl) 0;
-    }
-    
-    .globalContainer {
-      max-width: 1000px;
-      padding: 0 var(--spacing-xl);
-    }
-    
-    .testimonialsSectionTitle {
-      font-size: var(--font-3xl);
-    }
-    
-    .testimonialsGrid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--spacing-2xl);
-    }
-    
-    .testimonialCard {
-      padding: var(--spacing-2xl);
-    }
-    
-    .testimonialCard:hover {
-      transform: translateY(-5px);
-    }
-    
-    .testimonialQuoteIcon {
-      font-size: var(--font-2xl);
-    }
+  .testimonialsSectionTitle {
+    font-size: var(--font-3xl);
   }
   
-  /* Large desktop styles (min-width: 1440px) */
-  @media (min-width: 1440px) {
-    .globalContainer {
-      max-width: 1200px;
-    }
+  .testimonialsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-2xl);
   }
   
-  /* Accessibility */
-  .testimonialCard:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
+  .testimonialCard {
+    padding: var(--spacing-2xl);
   }
   
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .testimonialCard {
-      transition: none;
-    }
-    
-    .testimonialCard:hover {
-      transform: none;
-    }
+  .testimonialQuoteIcon {
+    font-size: var(--font-2xl);
   }
+}
+
+/* Large desktop styles (min-width: 1440px) */
+@media (min-width: 1440px) {
+  .globalContainer {
+    max-width: 1200px;
+  }
+}
+
+/* Accessibility */
+.testimonialCard:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .testimonialCard {
+    transition: none;
+  }
+  
+  .testimonialCard:hover {
+    transform: none;
+  }
+}

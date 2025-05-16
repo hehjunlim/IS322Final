@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Testimonials from '../components/Testimonials';
-import { EtiquetteAssistantEmbed } from '../components/EtiquetteAssistant';
+import SimpleEtiquetteAIEmbed from '../components/SimpleEtiquetteAIEmbed';
 
 export default function Home() {
   const [userProfile, setUserProfile] = useState(null);
@@ -32,7 +32,7 @@ export default function Home() {
       </Head>
 
       <Navbar />
-      
+
       <main>
         {/* Hero Section */}
         <section className={styles.homeHero}>
@@ -42,7 +42,7 @@ export default function Home() {
                 {userProfile ? `Welcome back, ${userName}!` : 'Master Global Etiquette'}
               </h1>
               <p className={styles.homeHeroDescription}>
-                Navigate cultural customs with confidence. Learn proper etiquette for business, 
+                Navigate cultural customs with confidence. Learn proper etiquette for business,
                 social, and travel situations across different cultures worldwide.
               </p>
               <div className={styles.heroButtons}>
@@ -51,8 +51,8 @@ export default function Home() {
                     Get Started - Set Up Profile
                   </Link>
                 ) : (
-                  <Link href="/etiquette-assistant" className={styles.btnPrimary}>
-                    Ask the Etiquette Assistant
+                  <Link href="/ai-assistant" className={styles.btnPrimary}>
+                    Ask the AI Assistant
                   </Link>
                 )}
                 <Link href="/cultural-guides" className={styles.btnSecondary}>
@@ -102,7 +102,7 @@ export default function Home() {
               </div>
             </div>
             <p className={styles.homeAuthorityText}>
-              Our comprehensive guides help you avoid cultural faux pas and build meaningful 
+              Our comprehensive guides help you avoid cultural faux pas and build meaningful
               cross-cultural relationships in business and personal settings.
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function Home() {
                 <h3>AI Etiquette Assistant</h3>
                 <p>Get instant answers to your cultural etiquette questions with our AI-powered assistant.</p>
               </div>
-              
+
               <div className={styles.homeFeatureCard}>
                 <div className={styles.featureIcon}>
                   <i className="fas fa-book-open"></i>
@@ -128,7 +128,7 @@ export default function Home() {
                 <h3>Comprehensive Guides</h3>
                 <p>In-depth cultural guides covering business, social, and dining etiquette worldwide.</p>
               </div>
-              
+
               <div className={styles.homeFeatureCard}>
                 <div className={styles.featureIcon}>
                   <i className="fas fa-user-cog"></i>
@@ -148,7 +148,7 @@ export default function Home() {
               Ask any cultural etiquette question and get instant guidance
             </p>
             <div className={styles.assistantWrapper}>
-              <EtiquetteAssistantEmbed />
+              <SimpleEtiquetteAIEmbed />
               {!userProfile && (
                 <div className={styles.assistantCallout}>
                   <p>Want to save your conversations and get personalized advice?</p>
@@ -160,8 +160,8 @@ export default function Home() {
               {userProfile && (
                 <div className={styles.assistantCallout}>
                   <p>View your conversation history and get more personalized guidance</p>
-                  <Link href="/etiquette-assistant" className={styles.btnPrimary}>
-                    Go to Full Assistant
+                  <Link href="/ai-assistant" className={styles.btnPrimary}>
+                    Go to Full AI Chat
                   </Link>
                 </div>
               )}
@@ -225,7 +225,7 @@ export default function Home() {
                 Create Your Profile
               </Link>
             ) : (
-              <Link href="/etiquette-assistant" className={styles.btnPrimary}>
+              <Link href="/ai-assistant" className={styles.btnPrimary}>
                 Ask a Question
               </Link>
             )}

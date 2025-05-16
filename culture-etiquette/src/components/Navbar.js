@@ -15,7 +15,26 @@ const Navbar = () => {
     if (profile) {
       setUserProfile(JSON.parse(profile));
     }
+    
+    // Clean up function to ensure menu is closed and body scroll is enabled when component unmounts
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
   }, []);
+
+  // Add/remove 'menu-open' class on body when menu state changes
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+  }, [isOpen]);
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [router.pathname]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -25,10 +44,11 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.navbarContainer}>
         <Link href="/" className={styles.navbarLogo}>
-          Global Etiquette Guide
+          <span className={styles.navbarLogoSymbol}>{ }</span>
+          <span className={styles.navbarLogoText}>Global Etiquette</span>
         </Link>
         
-        <div className={styles.navbarMenuIcon} onClick={toggleMenu}>
+        <div className={styles.navbarMenuIcon} onClick={toggleMenu} aria-label="Toggle menu">
           <div className={`${styles.navbarBar} ${isOpen ? styles.change : ''}`}></div>
           <div className={`${styles.navbarBar} ${isOpen ? styles.change : ''}`}></div>
           <div className={`${styles.navbarBar} ${isOpen ? styles.change : ''}`}></div>
@@ -46,20 +66,11 @@ const Navbar = () => {
           </li>
           <li className={styles.navbarItem}>
             <Link 
-              href="/etiquette-assistant" 
-              className={`${styles.navbarLink} ${router.pathname === '/etiquette-assistant' ? styles.active : ''}`}
+              href="/ai-assistant" 
+              className={`${styles.navbarLink} ${router.pathname === '/ai-assistant' ? styles.active : ''}`}
               onClick={() => setIsOpen(false)}
             >
-              Ask AI
-            </Link>
-          </li>
-          <li className={styles.navbarItem}>
-            <Link 
-              href="/projects/ai-assistant" 
-              className={`${styles.navbarLink} ${router.pathname === '/projects/ai-assistant' ? styles.active : ''}`}
-              onClick={() => setIsOpen(false)}
-            >
-              AI Assistant
+              AI Chat
             </Link>
           </li>
           <li className={styles.navbarItem}>

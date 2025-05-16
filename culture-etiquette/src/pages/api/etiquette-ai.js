@@ -1,9 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import EtiquetteAssistant from '../components/EtiquetteAssistant';
-import styles from '../styles/EtiquettePage.module.css';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import SimpleEtiquetteAI from '../../components/SimpleEtiquetteAIEmbed';
+import styles from '../../styles/EtiquettePage.module.css';
 
 export default function AIChatPage() {
   return (
@@ -30,7 +30,7 @@ export default function AIChatPage() {
           </div>
           
           <div className={styles.assistantContainer} id="chatContainer">
-            <EtiquetteAssistant />
+            <SimpleEtiquetteAI />
           </div>
           
           <div className={styles.featuresList}>

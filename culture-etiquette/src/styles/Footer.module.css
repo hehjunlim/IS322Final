@@ -1,11 +1,10 @@
-/* Footer.module.css - Mobile-first Typewriter theme */
-
 .footer {
   background-color: var(--primary);
   color: var(--paper);
   padding: var(--spacing-xl) 0;
   border-top: 3px solid var(--accent);
   font-family: var(--font-primary);
+  position: relative;
 }
 
 .footerContainer {
@@ -33,6 +32,18 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-family: var(--font-heading);
+  position: relative;
+  display: inline-block;
+}
+
+.footerTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
 }
 
 .footerDescription {
@@ -50,29 +61,29 @@
 
 .footerLinks li {
   margin-bottom: var(--spacing-sm);
+  position: relative;
 }
 
 .footerLinks a {
   color: var(--paper);
   text-decoration: none;
   font-size: var(--font-sm);
-  text-transform: uppercase;
   letter-spacing: 0.05em;
   transition: color var(--transition-fast);
   display: inline-block;
   position: relative;
   opacity: 0.9;
+  padding-left: 15px;
 }
 
-.footerLinks a::after {
-  content: '';
+.footerLinks a::before {
+  content: '>';
   position: absolute;
-  bottom: -2px;
   left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  transition: width var(--transition-fast);
+  color: var(--accent);
+  opacity: 0.7;
+  font-family: monospace;
+  transition: transform var(--transition-fast);
 }
 
 .footerLinks a:hover, .footerLinks a:active {
@@ -80,8 +91,8 @@
   opacity: 1;
 }
 
-.footerLinks a:hover::after {
-  width: 100%;
+.footerLinks a:hover::before {
+  transform: translateX(3px);
 }
 
 .footerBottom {
@@ -90,16 +101,16 @@
   align-items: center;
   gap: var(--spacing-md);
   padding-top: var(--spacing-lg);
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
 }
 
 .footerCopyright {
   margin: 0;
   font-size: var(--font-sm);
-  text-transform: uppercase;
   letter-spacing: 0.05em;
   opacity: 0.9;
+  font-family: monospace;
 }
 
 .footerSocialLinks {
@@ -114,10 +125,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--paper);
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
   opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
 .footerSocialLinks a:hover, .footerSocialLinks a:active {
@@ -143,15 +156,14 @@
     text-align: left;
   }
   
+  .footerTitle {
+    margin-left: 0;
+  }
+  
   .footerBottom {
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
-  }
-  
-  .footerSocialLinks a {
-    width: 36px;
-    height: 36px;
   }
 }
 
@@ -181,7 +193,6 @@
   .footerSocialLinks a {
     width: 40px;
     height: 40px;
-    border-width: 1px;
   }
 }
 

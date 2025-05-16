@@ -1,0 +1,53 @@
+.profileButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .avatarCircle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: var(--font-primary);
+  }
+  
+  .username {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Use this class when the button is in the navbar profile link */
+  .profileButton.inNavbar .avatarCircle {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .profileButton.inNavbar .username {
+    color: var(--paper);
+  }
+  
+  /* Add a subtle hover effect */
+  .profileButton:hover .avatarCircle {
+    transform: scale(1.05);
+    transition: transform 0.2s ease;
+  }
+  
+  /* For very small screens */
+  @media (max-width: 380px) {
+    .username {
+      display: none;
+    }
+  }

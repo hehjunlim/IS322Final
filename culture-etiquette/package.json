@@ -1,5 +1,6 @@
+
 {
-  "name": "mindful-consumer-portfolio",
+  "name": "global-etiquette-guide",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,15 +10,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@vercel/style-guide": "^6.0.0",
-    "d3": "^7.9.0",
-    "geist": "^1.4.2",
-    "next": "^14.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@anthropic-ai/sdk": "^0.5.7",
+    "next": "13.4.7",
+    "openai": "^3.3.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.0.0"
+    "eslint": "8.43.0",
+    "eslint-config-next": "13.4.7"
   }
 }

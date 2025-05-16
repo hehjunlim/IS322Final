@@ -1,12 +1,25 @@
-/* ProfileAvatar.module.css */
 .avatar {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 4px; /* Square with slightly rounded corners - more typewriter-like */
     font-weight: 600;
     color: white;
     user-select: none;
+    font-family: var(--font-primary);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .avatar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.5);
   }
   
   .small {
@@ -25,26 +38,55 @@
     width: 64px;
     height: 64px;
     font-size: 24px;
+    border-width: 2px;
   }
   
   /* Animation for when the avatar appears */
-  @keyframes avatarFadeIn {
+  @keyframes typingIn {
     from {
       opacity: 0;
-      transform: scale(0.8);
+      transform: translateY(5px);
     }
     to {
       opacity: 1;
-      transform: scale(1);
+      transform: translateY(0);
     }
   }
   
   .avatar {
-    animation: avatarFadeIn 0.3s ease-in-out;
+    animation: typingIn 0.3s ease-out;
   }
   
-  /* Add a subtle hover effect */
+  /* Nerdy hover effect with keyboard-like click */
+  @keyframes keyPress {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(2px); }
+    100% { transform: translateY(0); }
+  }
+  
   .avatar:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+  }
+  
+  .avatar:active {
+    animation: keyPress 0.15s ease-in-out;
+  }
+  
+  /* Special styling for different sizes */
+  .large::after {
+    content: '[profile]';
+    position: absolute;
+    bottom: -4px;
+    right: -4px;
+    font-size: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 4px;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    font-family: monospace;
+  }
+  
+  .large:hover::after {
+    opacity: 1;
   }

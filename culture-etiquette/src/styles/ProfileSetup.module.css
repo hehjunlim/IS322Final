@@ -1,9 +1,7 @@
-/* ProfileSetup.module.css - Mobile-first Typewriter Theme */
-
 .profileSetupMain {
     min-height: 100vh;
     background: var(--background);
-    padding: 60px 0 40px; /* Reduced padding for mobile */
+    padding: 60px 0 40px;
   }
   
   .container {
@@ -14,33 +12,59 @@
   
   .progressBar {
     height: 6px;
-    background: var(--border);
+    background: var(--background);
     margin-bottom: 1.5rem;
     overflow: hidden;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    position: relative;
+  }
+  
+  .progressBar::before {
+    content: '/* progress */';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: var(--background);
+    padding: 0 10px;
+    color: var(--light-text);
+    font-family: monospace;
+    font-size: 12px;
   }
   
   .progressFill {
     height: 100%;
-    background: var(--accent);
+    background: var(--primary);
     transition: width 0.3s ease;
   }
   
   .stepIndicator {
     text-align: center;
-    color: var(--text);
+    color: var(--light-text);
     font-size: 0.875rem;
     margin-bottom: 1.5rem;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-family: var(--font-primary);
+    font-family: monospace;
   }
   
   .profileForm {
     background: var(--paper);
     padding: 1.5rem;
-    border: 2px solid var(--primary);
+    border: 1px solid var(--border);
     position: relative;
+    border-radius: 4px;
+  }
+  
+  .profileForm::before {
+    content: '/* setup-form */';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: var(--paper);
+    padding: 0 10px;
+    color: var(--light-text);
+    font-family: monospace;
+    font-size: 12px;
   }
   
   .profileForm h2 {
@@ -51,6 +75,18 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-family: var(--font-heading);
+    position: relative;
+  }
+  
+  .profileForm h2::after {
+    content: '';
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .formGroup {
@@ -63,7 +99,6 @@
     color: var(--text);
     margin-bottom: 0.5rem;
     font-size: 0.875rem;
-    text-transform: uppercase;
     letter-spacing: 0.05em;
     font-family: var(--font-primary);
   }
@@ -72,18 +107,19 @@
   .formGroup select {
     width: 100%;
     padding: 10px 12px;
-    border: 2px solid var(--border);
-    background: var(--paper);
+    border: 1px solid var(--border);
+    background: var(--background);
     font-size: 0.875rem;
     font-family: var(--font-primary);
     transition: border-color var(--transition-base);
+    border-radius: 4px;
   }
   
   .formGroup input[type="text"]:focus,
   .formGroup select:focus {
     outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 1px var(--accent);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(47, 60, 126, 0.1);
   }
   
   .errorInput {
@@ -95,8 +131,7 @@
     font-size: 0.75rem;
     margin-top: 0.25rem;
     display: block;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-family: monospace;
   }
   
   /* Radio and Checkbox Styling */
@@ -124,7 +159,7 @@
     width: 16px;
     height: 16px;
     cursor: pointer;
-    accent-color: var(--accent);
+    accent-color: var(--primary);
   }
   
   .checkboxGrid {
@@ -148,42 +183,61 @@
     padding: 12px 20px;
     font-size: 0.875rem;
     font-weight: 600;
-    border: 2px solid;
+    border: none;
     cursor: pointer;
     transition: all var(--transition-base);
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     font-family: var(--font-primary);
+    border-radius: 4px;
+    position: relative;
   }
   
   .nextButton {
     background: var(--primary);
     color: var(--paper);
-    border-color: var(--primary);
+  }
+  
+  .nextButton::after {
+    content: ' →';
+    position: absolute;
+    right: 20px;
+    transition: transform 0.2s ease;
   }
   
   .nextButton:hover, .nextButton:active {
-    background: var(--text);
-    border-color: var(--text);
+    background: #3a4c98;
+  }
+  
+  .nextButton:hover::after {
+    transform: translateX(3px);
   }
   
   .nextButton:disabled {
     background: var(--secondary);
-    border-color: var(--secondary);
     cursor: not-allowed;
     opacity: 0.7;
   }
   
   .backButton {
-    background: transparent;
+    background: var(--background);
     color: var(--primary);
-    border-color: var(--primary);
+    border: 1px solid var(--border);
+  }
+  
+  .backButton::before {
+    content: '← ';
+    position: absolute;
+    left: 20px;
+    transition: transform 0.2s ease;
   }
   
   .backButton:hover, .backButton:active {
-    background: var(--background);
-    border-color: var(--text);
+    background: #e9e7e1;
     color: var(--text);
+  }
+  
+  .backButton:hover::before {
+    transform: translateX(-3px);
   }
   
   .skipOption {
@@ -200,8 +254,8 @@
     text-decoration: underline;
     transition: color var(--transition-base);
     font-family: var(--font-primary);
-    text-transform: uppercase;
     letter-spacing: 0.05em;
+    text-transform: none;
   }
   
   .skipButton:hover, .skipButton:active {
@@ -226,7 +280,7 @@
     
     .profileForm {
       padding: 2.5rem;
-      box-shadow: 3px 3px 0 var(--primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
     
     .profileForm h2 {
@@ -289,6 +343,12 @@
     .checkboxGrid {
       grid-template-columns: repeat(3, 1fr);
     }
+    
+    .nextButton:hover,
+    .backButton:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
   }
   
   /* Large desktop styles (min-width: 1440px) */
@@ -350,21 +410,4 @@
   .checkboxLabel input:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 1px;
-  }
-  
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .profileForm,
-    .profileForm *,
-    .progressFill,
-    .nextButton,
-    .backButton,
-    .skipButton,
-    .formGroup,
-    .projectMetaCard,
-    .loading::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
   }
