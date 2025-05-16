@@ -1,73 +1,89 @@
-import React from 'react';
-import Head from 'next/head';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
-import SimpleEtiquetteAI from '../../components/SimpleEtiquetteAIEmbed';
-import styles from '../../styles/EtiquettePage.module.css';
+// pages/api/etiquette-ai.js (improved error handling)
 
-export default function AIChatPage() {
-  return (
-    <>
-      <Head>
-        <title>Cultural Etiquette AI Chat | Global Etiquette Guide</title>
-        <meta name="description" content="Get instant answers to your cultural etiquette questions with our AI assistant" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-      </Head>
+import { Configuration, OpenAIApi } from 'openai';
 
-      <Navbar />
-      
-      <main className={styles.main}>
-        <div className={styles.container}>
-          <div className={styles.pageHeader}>
-            <h1 className={styles.styleTitle}>
-              <span className={styles.bracketLeft}>{'{ '}</span>
-              CULTURAL ETIQUETTE AI CHAT
-              <span className={styles.bracketRight}>{' }'}</span>
-            </h1>
-            <p>Ask questions about customs and etiquette from around the world</p>
-          </div>
-          
-          <div className={styles.assistantContainer} id="chatContainer">
-            <SimpleEtiquetteAI />
-          </div>
-          
-          <div className={styles.featuresList}>
-            <div className={styles.feature}>
-              <div className={styles.featureIcon}>
-                <i className="fas fa-globe"></i>
-              </div>
-              <div className={styles.featureContent}>
-                <h3>Global Coverage</h3>
-                <p>Get etiquette advice for over 50 countries and cultural regions</p>
-              </div>
-            </div>
-            
-            <div className={styles.feature}>
-              <div className={styles.featureIcon}>
-                <i className="fas fa-check-circle"></i>
-              </div>
-              <div className={styles.featureContent}>
-                <h3>Appropriateness Check</h3>
-                <p>Instantly see if your planned actions are appropriate in a specific culture</p>
-              </div>
-            </div>
-            
-            <div className={styles.feature}>
-              <div className={styles.featureIcon}>
-                <i className="fas fa-lightbulb"></i>
-              </div>
-              <div className={styles.featureContent}>
-                <h3>Personalized Advice</h3>
-                <p>Receive tailored guidance based on your interests and needs</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+// Initialize OpenAI configuration
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-      <Footer />
-    </>
-  );
+export default async function handler(req, res) {
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  try {
+    const { message, userProfile } = req.body;
+
+    if (!message) {
+      return res.status(400).json({ error: 'Message is required' });
+    }
+
+    // Check if API key is configured
+    if (!process.env.OPENAI_API_KEY) {
+      console.error('OpenAI API key is not configured');
+      return res.status(500).json({ 
+        error: 'AI service is not configured properly',
+        answer: 'I apologize, but the AI service is not configured properly. Please contact the site administrator.'
+      });
+    }
+
+    console.log('API key configured, making request to OpenAI...');
+    
+    const openai = new OpenAIApi(configuration);
+
+    // Build a better prompt based on user profile if available
+    let systemPrompt = "You are a helpful cultural etiquette assistant. Your goal is to provide accurate and respectful advice about customs, traditions, and appropriate behavior in different cultures around the world. Be clear about whether something is appropriate or inappropriate, and explain why. Keep responses concise but informative.";
+    
+    if (userProfile) {
+      systemPrompt += ` The user has the following profile: Purpose: ${userProfile.purpose || 'Not specified'}. Interested cultures: ${userProfile.interestedCultures?.join(', ') || 'Not specified'}. Experience level: ${userProfile.experienceLevel || 'Not specified'}. Adjust your responses to be appropriate for this background.`;
+    }
+
+    console.log('Making request to OpenAI with prompt...');
+
+    // Make request to OpenAI
+    const completion = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo", // Use a faster model
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: message }
+      ],
+      temperature: 0.7,
+      max_tokens: 300, // Reduce token count for faster responses
+    });
+
+    console.log('Received response from OpenAI');
+
+    // Extract and return the response
+    const answer = completion.data.choices[0].message.content;
+    
+    return res.status(200).json({ answer });
+  } catch (error) {
+    // Detailed error logging
+    console.error('Error in API route:', error);
+    console.error('Error details:', error.response?.data || 'No additional details');
+    
+    // Check if it's an API key error
+    if (error.response?.status === 401) {
+      return res.status(500).json({ 
+        error: 'Invalid API key',
+        answer: 'I apologize, but there was an issue with the AI service authentication. Please contact the site administrator.'
+      });
+    }
+    
+    // Handle rate limit errors
+    if (error.response?.status === 429) {
+      return res.status(429).json({ 
+        error: 'Rate limit exceeded',
+        answer: 'I apologize, but we\'ve reached the AI service rate limit. Please try again in a moment.'
+      });
+    }
+    
+    // Always return a response, even for unexpected errors
+    return res.status(500).json({ 
+      error: 'Something went wrong',
+      answer: 'I apologize, but I encountered an error processing your request. Please try again.'
+    });
+  }
 }

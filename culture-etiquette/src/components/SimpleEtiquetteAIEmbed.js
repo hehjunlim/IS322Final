@@ -1,5 +1,3 @@
-// components/SimpleEtiquetteAIEmbed.js
-
 import React, { useState, useEffect, useRef } from 'react';
 import styles from '../styles/SimpleEtiquetteAIEmbed.module.css';
 
@@ -98,6 +96,15 @@ const SimpleEtiquetteAIEmbed = () => {
     "How do I greet someone in Dubai?"
   ];
 
+  const handleQuickQuestion = (question) => {
+    setInputValue(question);
+    // Use setTimeout to ensure the input value is set before submission
+    setTimeout(() => {
+      const fakeEvent = { preventDefault: () => {} };
+      handleSendMessage(fakeEvent);
+    }, 50);
+  };
+
   return (
     <div className={styles.embedContainer}>
       <div className={styles.messagesContainer}>
@@ -132,10 +139,7 @@ const SimpleEtiquetteAIEmbed = () => {
           {quickQuestions.map((q, index) => (
             <button
               key={index}
-              onClick={() => {
-                setInputValue(q);
-                setTimeout(() => handleSendMessage(), 50);
-              }}
+              onClick={() => handleQuickQuestion(q)}
               className={styles.quickButton}
             >
               {q}
